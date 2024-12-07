@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <div className="container mx-auto px-4 py-4">
           {children}
         </div>
-
+        <div id="modal-root-content" />
       </body>
     </html>
   );
