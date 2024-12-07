@@ -1,12 +1,10 @@
 import videos from "@/data/videos.json"
-import next from "next";
 import { NextResponse } from "next/server";
 
 export async function GET(_req, { params: { id } }) {
     const videosId = videos.find(video => video.videoId === id);
     return Response.json(videosId)
 }
-
 
 export async function PATCH(req, { params: { id } }) {
     const videoIndex = videos.findIndex((video) => video.videoId === id);
@@ -41,20 +39,6 @@ export async function PATCH(req, { params: { id } }) {
     return NextResponse.json({ video: videos[videoIndex] }, { status: 200 });
 }
 
-
-// export async function DELETE(_req, { params: id }) {
-//     const videosIndex = videos.findIndex((video) => video.videoId === id)
-//     if (videosIndex === -1) {
-//         return NextResponse.json({ error: "Video not found." }, { status: 404 })
-//     }
-
-//     const deletedVideo = videos.splice(videosIndex, 1)[0];
-
-//     return NextResponse.json(
-//         { message: "Video deleted successfully.", video: deletedVideo },
-//         { status: 200 }
-//     )
-// }
 
 export async function DELETE(_req, { params: { id } }) {
     const videoIndex = videos.findIndex((video) => video.videoId === id);
