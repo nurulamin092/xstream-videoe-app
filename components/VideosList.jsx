@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import VideoCard from "./VideoCard";
 
-const VideosList = () => {
+const VideosList = ({ lang }) => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const VideosList = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {videos.map((video) => (
-            <VideoCard key={video.videoId} video={video} />
+            <VideoCard key={video.videoId} video={video} lang={lang} />
           ))}
         </div>
       </section>

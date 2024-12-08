@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-const Modal = ({ children }) => {
+const ModalOld = ({ children }) => {
   const modalRef = useRef(null);
   const router = useRouter();
 
@@ -31,4 +31,4 @@ const Modal = ({ children }) => {
   );
 };
 
-export default Modal;
+export default ModalOld;
