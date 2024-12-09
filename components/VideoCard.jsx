@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 const VideoCard = ({ video, lang }) => {
-  console.log("Video card data", video);
   return (
     <>
       <Link href={`${lang}/videos/${video.videoId}`}>

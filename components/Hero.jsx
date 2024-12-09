@@ -1,19 +1,33 @@
-const Hero = () => {
+import { getDictionary } from "@/app/[lang]/disctionaries";
+
+const Hero = async ({ lang }) => {
+  const dictionary = await getDictionary(lang);
+  const {
+    play,
+    compete,
+    follow,
+    popular,
+    streamers,
+    heroDescription,
+    videoDes,
+    comingSoon,
+    watchLater,
+    duration,
+    title,
+    headLine,
+  } = dictionary;
   return (
     <>
       <main className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center">
         <div className="lg:col-span-2">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-            PLAY, COMPETE,
+            {play}, {compete}
             <br />
-            FOLLOW POPULAR
+            {follow}, {popular}
             <br />
-            STREAMERS
+            {streamers}
           </h1>
-          <p className="text-gray-400 mb-8">
-            The best streamers gather here to have a good time, be among us,
-            join us!
-          </p>
+          <p className="text-gray-400 mb-8">{heroDescription}</p>
         </div>
         <div className="lg:col-span-2">
           <div className="relative rounded-lg overflow-hidden">
@@ -30,18 +44,16 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-between p-4">
               <div className="text-right">
                 <span className="bg-color-purple text-white px-2 py-1 rounded text-sm">
-                  COMING SOON
+                  {comingSoon}
                 </span>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">04:03</div>
-                <p className="text-sm">Broadcast starts in</p>
+                <div className="text-4xl font-bold mb-2">{duration}</div>
+                <p className="text-sm">{title}</p>
               </div>
             </div>
           </div>
-          <p className="mt-2 text-sm text-gray-400">
-            Battle for the castle with Franck Jourdan and Eva703
-          </p>
+          <p className="mt-2 text-sm text-gray-400">{headLine}</p>
         </div>
       </main>
     </>
