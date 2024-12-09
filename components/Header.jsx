@@ -1,9 +1,12 @@
+import Logo from "./Logo";
+
 const Header = () => {
   return (
     <>
       <header className="flex justify-between items-center mb-8">
         <div className="flex items-center space-x-8">
-          <img src="/logo.svg" alt="LWS Xstream Logo" className="h-6" />
+          {/* <img src="/logo.svg" alt="LWS Xstream Logo" className="h-6" /> */}
+          <Logo />
           <nav className=" hidden md:flex space-x-6">
             <a href="#" className="text-color-purple font-semibold">
               TOP STREAMING

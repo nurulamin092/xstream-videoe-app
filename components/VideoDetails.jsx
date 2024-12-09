@@ -1,10 +1,11 @@
+import Hero from "./Hero";
 import YouMakeLike from "./YouMakeLike";
 
 const VideoDetails = ({ video, relatedVideos }) => {
   return (
     <>
       <main className="flex flex-col lg:flex-row gap-6">
-        <div className="lg:w-3/4">
+        {/* <div className="lg:w-3/4">
           <div className="relative">
             <iframe
               src="https://www.youtube.com/embed/hecODa5ZgZM"
@@ -64,7 +65,8 @@ const VideoDetails = ({ video, relatedVideos }) => {
               Subscribe
             </button>
           </div>
-        </div>
+        </div> */}
+        <Hero />
         <div className="lg:w-1/4">
           <h2 className="text-xl font-semibold mb-4">You may like</h2>
           {relatedVideos.map((video) => (

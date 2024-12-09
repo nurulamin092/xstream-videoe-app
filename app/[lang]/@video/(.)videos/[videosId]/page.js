@@ -1,14 +1,15 @@
-
-
 import Modal from '@/components/Modal';
+import ModalO from '@/components/ModalO';
 import VideoDetails from '@/components/VideoDetails';
-import videos from '@/data/videos.json';
+const videos = () => import("@/data/videos.json").then((res) => res.default)
+    .catch((err) => console.log(err));
 
-const VideosDetailPage = ({ params: { videosId } }) => {
+const VideosDetailPage = async ({ params: { videosId } }) => {
+    const data = await videos()
 
-    const videoFound = videos.find(video => video.videoId === videosId);
+    const videoFound = data.find(video => video.videoId === videosId);
 
-    const relatedVideos = videos.filter(video => video.videoId !== videosId)
+    const relatedVideos = data.filter(video => video.videoId !== videosId)
         .sort(() => Math.random() - 0.5).slice(0, 3)
 
     return (

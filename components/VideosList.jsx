@@ -1,22 +1,11 @@
-"use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import VideoCard from "./VideoCard";
-
-const VideosList = ({ lang }) => {
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const res = await import("@/data/videos.json");
-        setVideos(res.default);
-      } catch (error) {
-        console.error("Failed to load videos:", error);
-      }
-    };
-    fetchVideos();
-  }, []);
+const videos = () =>
+  import("@/data/videos.json")
+    .then((res) => res.default)
+    .catch((err) => console.log(err));
+const VideosList = async ({ lang }) => {
+  const data = await videos();
   return (
     <>
       <section className="mt-12">
@@ -30,7 +19,7 @@ const VideosList = ({ lang }) => {
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {videos.map((video) => (
+          {data.map((video) => (
             <VideoCard key={video.videoId} video={video} lang={lang} />
           ))}
         </div>
